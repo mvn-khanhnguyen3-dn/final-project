@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useMessage from "../../../hooks/useMessage";
 import { Layout, Form, Input, Button, Checkbox } from "antd";
+import { apiUsersGetList } from "../../../api/users/users.api";
 
 const { Content } = Layout;
 
 export default function Login() {
   const [user, setUser] = useState();
   const [password, setPassword] = useState();
+  const [userApi, setUserApi] = useState();
+
   let { login } = useAuth();
 
-  let { openMessage } = useMessage();
+  let { openMessage, openMessageErr } = useMessage();
 
-  const onFinish = () => {
-    login({ user }, { password });
-    openMessage();
+  useEffect(() => {
+    apiUsersGetList().then((user) => {
+      setUserApi(user.data);
+    });
+  }, []);
+
+  const onFinish = (values) => {
+    const users = userApi.find(user => user)
+    if ( users.userName === values.username && users.password === values.password) {
+      login({ user }, { password });
+      openMessage();
+    } else {
+      openMessageErr();
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
