@@ -77,7 +77,7 @@ function ProductManageTable() {
         allowClear
         enterButton="Search"
         size="large"
-        onSearch ={setFilterInput}
+        onSearch={setFilterInput}
       />
       <Table dataSource={filterData()}>
         <Column {...productName} />
@@ -98,7 +98,7 @@ function ProductManageTable() {
                   className="btnEdit"
                   onClick={() => handleEdit(record.id)}
                 />
-                {/* <Link to={`/product/update/${record.id}`}>a</Link> */}
+                {/* <Link to={`/product/update/${record.id}`}><EditOutlined/></Link> */}
                 <DeleteOutlined
                   className="btnDelete"
                   onClick={() => handleDelete(record.id)}
