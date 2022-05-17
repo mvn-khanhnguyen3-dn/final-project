@@ -7,13 +7,11 @@ import InfoLayout from "../../layouts/Info";
 import ModalUpdate from "../ModalUpdate";
 // import { Link } from "react-router-dom";
 
-
 const { Search } = Input;
 
 const { Column } = Table;
 
 function ProductManageTable() {
-  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisibleUpdate, setIsModalVisibleUpdate] = useState(false);
   const [form] = Form.useForm();
@@ -21,7 +19,6 @@ function ProductManageTable() {
   const [filterInput, setFilterInput] = useState("");
 
   const products = JSON.parse(localStorage.getItem("products")) || [];
-
 
   const data = products.map((item) => ({
     key: item.id,
@@ -65,7 +62,7 @@ function ProductManageTable() {
 
   const filterData = () => {
     if (filterInput === "") return data;
-    
+
     if (isNaN(filterInput)) {
       return data.filter(({ productName }) =>
         productName.toLocaleLowerCase().includes(filterInput)
@@ -80,7 +77,7 @@ function ProductManageTable() {
         allowClear
         enterButton="Search"
         size="large"
-        onSearch={setFilterInput}
+        onSearch ={setFilterInput}
       />
       <Table dataSource={filterData()}>
         <Column {...productName} />
