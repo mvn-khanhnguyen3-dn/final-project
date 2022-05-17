@@ -14,15 +14,9 @@ function News() {
   const price = useColumn("price", 150);
 
   useEffect(() => {
-    const fetch = () => {
       apiProductsGetList().then((result) => {
         setFetchData(result.data);
       });
-    };
-    fetch();
-    return () => {
-      fetch();
-    };
   }, []);
   return (
     <Content style={{ padding: "0 50px" }}>

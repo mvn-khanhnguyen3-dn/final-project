@@ -3,26 +3,33 @@ import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import useAuth from '../../../hooks/useAuth';
 import useMessage from '../../../hooks/useMessage'
-import {HomeOutlined, PlusCircleOutlined, PicRightOutlined, UserOutlined , LoginOutlined } from '@ant-design/icons';
+import {
+  HomeOutlined,
+  PlusCircleOutlined,
+  PicRightOutlined,
+  UserOutlined,
+  LoginOutlined,
+  DingtalkOutlined,
+} from "@ant-design/icons";
 
 const { Header } = Layout;
 const data = [
   {
-    name : 'PRODUCT MANAGE',
-    link : '/product/product-manage',
-    icon : <HomeOutlined />
+    name: "PRODUCT MANAGE",
+    link: "/product/product-manage",
+    icon: <HomeOutlined />,
   },
   {
-    name : 'PRODUCT CREATE',
-    link : '/product/create',
-    icon : <PlusCircleOutlined />
+    name: "PRODUCT CREATE",
+    link: "/product/create",
+    icon: <PlusCircleOutlined />,
   },
   {
-    name : 'NEWS',
-    link : '/product/news',
-    icon : <PlusCircleOutlined />
+    name: "NEWS",
+    link: "/product/news",
+    icon: <DingtalkOutlined />,
   },
-]
+];
 function PageHeader () {
   let {logout} = useAuth();
   let { openMessage } = useMessage();
