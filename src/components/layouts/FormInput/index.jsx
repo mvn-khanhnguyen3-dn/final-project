@@ -41,6 +41,7 @@ function FormInput(props) {
     <Form
       form={form}
       onFinish={handleSubmit}
+      autoComplete = "off"
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
       layout="horizontal"
