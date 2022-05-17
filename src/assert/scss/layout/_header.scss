@@ -1,0 +1,51 @@
+.site-layout-content {
+  min-height: 10vh;
+  background: #fff;
+}
+.logo {
+  float: left;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  margin: 10px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  font-size: 22px;
+  a{
+    color: #fff;
+  }
+}
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+[data-theme="dark"] .site-layout-content {
+    background: #141414;
+}
+.ant-menu-title-content{
+  padding: 10px;
+  a{
+    letter-spacing: 1px;
+    .anticon{
+      font-size: 15px;
+      text-align: center;
+    }
+
+  }
+}
+.socials{
+  position: absolute;
+  right: 5%;
+  top: 0;
+  li{
+    list-style: none;
+    display: inline-block;
+    padding-right: 25px;
+    color: #fff;
+    font-size: 20px;
+    a{
+      color: #fff;
+    }
+  }
+}

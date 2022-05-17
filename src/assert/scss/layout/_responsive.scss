@@ -1,0 +1,20 @@
+@include respond-below(large) {
+  // home
+  .page-home .site-layout-right p {
+    padding: 10px 0 !important;
+    font-size: 15px !important;
+  }
+  //   login
+  .login-left {
+    width: 35% !important;
+  }
+  .login-form {
+    width: 45% !important;
+  }
+}
+@include respond-below(medium) {
+}
+
+@include respond-below(small) {
+ 
+}
