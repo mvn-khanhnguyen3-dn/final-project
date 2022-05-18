@@ -57,7 +57,7 @@ function FormInput(props) {
     >
       <Form.Item label="Image">
         <input
-          required
+          // required
           type="file"
           name="myImage"
           onChange={(e) => handleChange(e)}
