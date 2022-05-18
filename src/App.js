@@ -19,8 +19,8 @@ function App() {
             <PrivateRoute path="/account">
               <Account />
             </PrivateRoute>
-            <PrivateRouterLogin>
-                <Login />
+            <PrivateRouterLogin path="/login">
+              <Login />
             </PrivateRouterLogin>
             <Route exact path="/">
               <Home />
