@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Layout, Carousel } from "antd";
 import slide1 from "../../assert/images/slide1.jpg";
 import slide2 from "../../assert/images/slide2.jpg";
@@ -42,4 +43,4 @@ function Home() {
     </Content>
   );
 }
-export default Home;
+export default memo(Home);
