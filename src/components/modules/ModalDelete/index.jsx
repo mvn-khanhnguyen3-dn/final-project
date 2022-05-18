@@ -14,7 +14,7 @@ const ModalLayout = (props) => {
         {data.map(
           (item) =>
             item.id === id && (
-              <div className="flex">
+              <div key={item.id} className="flex">
                 <img
                   style={{ height: 190, borderRadius: 8, marginRight: 30 }}
                   src={item.image}

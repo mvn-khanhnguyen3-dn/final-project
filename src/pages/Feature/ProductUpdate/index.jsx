@@ -8,7 +8,6 @@ const { Content } = Layout;
 function ProductUpdate() {
   const { id } = useParams();
   let history = useHistory();
-  
 
   const product = JSON.parse(localStorage.getItem("products"));
   const item = product.find((item) => item.id === parseInt(id));
@@ -18,12 +17,12 @@ function ProductUpdate() {
     "Update success",
     `${list.productName}`
   );
-
   const handleSubmit = () => {
     data.find(
       (productData) =>
         productData.id === list.id && [
           (productData.productName = list.productName),
+          (productData.image = list.image),
           (productData.category = list.category),
           (productData.descriptions = list.descriptions),
           (productData.price = list.price),

@@ -41,9 +41,18 @@ function FormInput(props) {
     <Form
       form={form}
       onFinish={handleSubmit}
-      autoComplete = "off"
+      autoComplete="off"
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
+      // xóa đi để xài modal của update
+      initialValues={{
+        image: list.image,
+        productName: list.productName,
+        category: list.category,
+        descriptions: list.descriptions,
+        price: list.price,
+        quality: list.quality,
+      }}
       layout="horizontal"
     >
       <Form.Item label="Image">

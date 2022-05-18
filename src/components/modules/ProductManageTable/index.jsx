@@ -5,7 +5,7 @@ import useColumn from "../../../hooks/useColumn";
 import ModalDelete from "../ModalDelete";
 import InfoLayout from "../../layouts/Info";
 import ModalUpdate from "../ModalUpdate";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const { Search } = Input;
 
@@ -48,12 +48,13 @@ function ProductManageTable() {
     setIsModalVisible(true);
     setIdItem(id);
   };
-  const handleEdit = (id) => {
-    setIsModalVisibleUpdate(true);
-    const dataView = data.find((item) => item.id === id);
-    form.setFieldsValue(dataView);
-    setIdItem(id);
-  };
+  //handelEdit của modal update
+  // const handleEdit = (id) => {
+  //   setIsModalVisibleUpdate(true);
+  //   const dataView = data.find((item) => item.id === id);
+  //   form.setFieldsValue(dataView);
+  //   setIdItem(id);
+  // };
 
   const handleOk = () => {
     setIsModalVisible(false);
@@ -95,11 +96,14 @@ function ProductManageTable() {
                   className="btnView"
                   onClick={() => handleView(record.id)}
                 />
-                <EditOutlined
+                {/* nút click của handleEdit của modal */}
+                {/* <EditOutlined
                   className="btnEdit"
                   onClick={() => handleEdit(record.id)}
-                />
-                {/* <Link to={`/product/update/${record.id}`}><EditOutlined/></Link> */}
+                /> */}
+                <Link to={`/product/update/${record.id}`}>
+                  <EditOutlined />
+                </Link>
                 <DeleteOutlined
                   className="btnDelete"
                   onClick={() => handleDelete(record.id)}
