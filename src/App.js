@@ -20,11 +20,9 @@ function App() {
               <Account />
             </PrivateRoute>
             <PrivateRouterLogin>
-              <Route path="/login">
                 <Login />
-              </Route>
             </PrivateRouterLogin>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
           </Switch>
