@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Table, Breadcrumb, Layout,Input } from "antd";
+import { Table, Breadcrumb, Layout, Input } from "antd";
 import useColumn from "../../../hooks/useColumn";
 import { apiProductsGetList } from "../../../api/products/products.api";
 
@@ -17,19 +17,18 @@ function News() {
   const price = useColumn("price", 150);
 
   useEffect(() => {
-      apiProductsGetList().then((result) => {
-        setFetchData(result.data);
-      });
+    apiProductsGetList().then((result) => {
+      setFetchData(result.data);
+    });
   }, []);
-   const filterData = () => {
-     if (filterInput === "") return fetchData;
-
-     if (isNaN(filterInput)) {
-       return fetchData.filter(({ productName }) =>
-         productName.toLocaleLowerCase().includes(filterInput)
-       );
-     }
-   };
+  const filterData = () => {
+    if (filterInput === "") return fetchData;
+    if (isNaN(filterInput)) {
+      return fetchData.filter(({ productName }) =>
+        productName.toLocaleLowerCase().includes(filterInput)
+      );
+    }
+  };
   return (
     <Content style={{ padding: "0 50px" }}>
       <Breadcrumb style={{ margin: "16px 0" }}>

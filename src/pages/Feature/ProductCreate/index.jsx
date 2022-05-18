@@ -19,7 +19,8 @@ function ProductCreate() {
   let { openNotification } = useNotification("Create success",`${list.productName} added to the list`);
 
   const handleSubmit = () => {
-      const id = Math.floor(Math.random() * 10000);
+      // const id = Math.floor(Math.random() * 10000);
+      const id = data.length + 1;
       setData([...data, {id, ...list }]);
       openNotification();
   };

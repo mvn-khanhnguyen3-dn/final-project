@@ -1,11 +1,8 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  th,
-  td {
-    @include pxRem(padding, 10);
-    border: 1px solid map-get($colors, border-gray);
-  }
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
 }
 .ant-space-item {
   font-size: 17px;
@@ -38,4 +35,17 @@ table {
 }
 .ant-table table {
   table-layout: auto !important;
+}
+.ant-descriptions-title {
+  text-transform: uppercase;
+}
+.ant-table-column-sorter-inner {
+  visibility: hidden;
+  opacity: 0;
+}
+th.ant-table-column-sort {
+  background: #fafafa !important;
+}
+td.ant-table-column-sort {
+  background: transparent;
 }

@@ -26,7 +26,7 @@ function ProductManageTable() {
     ...item,
   }));
 
-  const productName = useColumn("productName", 150);
+  const productName = useColumn("productName", 150, "", (a, b) => a.id - b.id);
   const quality = useColumn("quality", 100);
   const category = useColumn("category", 250);
   const descriptions = useColumn("descriptions", 400);
@@ -36,8 +36,9 @@ function ProductManageTable() {
   const handleView = (id) => {
     const dataView = data.find((item) => item.id === id);
     Modal.info({
-      width: 800,
-      title: "Notification product details",
+      width: 600,
+      centered: true,
+      title: "Products detail",
       content: <InfoLayout data={dataView} />,
       onOk() {},
     });
