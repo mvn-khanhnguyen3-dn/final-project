@@ -25,9 +25,9 @@ function FormInput(props) {
         setImage(URL.createObjectURL(img));
       }
     }
-    setList({ ...list, image, [name]: value });
+    list.image = image;
+    setList({ ...list, [name]: value });
   };
-
   useEffect(() => {
     const productList = JSON.parse(localStorage.getItem("products")) || [];
     setData(productList);
@@ -56,6 +56,13 @@ function FormInput(props) {
       layout="horizontal"
     >
       <Form.Item label="Image">
+        {image && (
+          <img
+           className="input-img"
+            src={image}
+            alt=""
+          />
+        )}
         <input
           // required
           type="file"

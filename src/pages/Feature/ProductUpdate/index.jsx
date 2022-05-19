@@ -22,7 +22,7 @@ function ProductUpdate() {
       (productData) =>
         productData.id === list.id && [
           (productData.productName = list.productName),
-          list.image !== undefined
+          list.image !== undefined || null
             ? (productData.image = list.image)
             : productData.image,
           (productData.category = list.category),
