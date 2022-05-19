@@ -17,6 +17,7 @@ function ProductUpdate() {
     "Update success",
     `${list.productName}`
   );
+  console.log("list", list.image);
   const handleSubmit = () => {
     data.find(
       (productData) =>

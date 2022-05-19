@@ -19,12 +19,12 @@ function FormInput(props) {
         : typeof e === "string"
         ? "category"
         : e.target.name;
-    if (typeof e !== "string" && typeof e !== "number") {
-      if (e.target.files && e.target.files[0]) {
-        let img = e.target.files[0];
-        setImage(URL.createObjectURL(img));
-      }
-    }
+    // if (typeof e !== "string" && typeof e !== "number") {
+    //   if (e.target.files && e.target.files[0]) {
+    //     let img = e.target.files[0];
+    //     setImage(URL.createObjectURL(img));
+    //   }
+    // }
     list.image = image;
     setList({ ...list, [name]: value });
   };
@@ -66,8 +66,9 @@ function FormInput(props) {
         <input
           // required
           type="file"
-          name="myImage"
-          onChange={(e) => handleChange(e)}
+          name="image"
+          // onChange={(e) => handleChange(e)}
+          onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
         />
       </Form.Item>
       <Form.Item
