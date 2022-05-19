@@ -9,7 +9,6 @@ const { Search } = Input;
 function News() {
   const [fetchData, setFetchData] = useState([]);
   const [filterInput, setFilterInput] = useState("");
-
   const productName = useColumn("productName", 150);
   const quanlity = useColumn("quanlity", 100);
   const category = useColumn("category", 250);
@@ -17,9 +16,13 @@ function News() {
   const price = useColumn("price", 150);
 
   useEffect(() => {
+    let abortController = new AbortController();
     apiProductsGetList().then((result) => {
       setFetchData(result.data);
     });
+    return () => {
+      abortController.abort();
+    };
   }, []);
   const filterData = () => {
     if (filterInput === "") return fetchData;

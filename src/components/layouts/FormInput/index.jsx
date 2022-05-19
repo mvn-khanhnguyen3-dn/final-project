@@ -36,7 +36,7 @@ function FormInput(props) {
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(data));
   }, [data]);
-
+  
   return (
     <Form
       form={form}
@@ -56,13 +56,7 @@ function FormInput(props) {
       layout="horizontal"
     >
       <Form.Item label="Image">
-        {image && (
-          <img
-           className="input-img"
-            src={image}
-            alt=""
-          />
-        )}
+        {image && <img className="input-img" src={image} alt="" />}
         <input
           // required
           type="file"
