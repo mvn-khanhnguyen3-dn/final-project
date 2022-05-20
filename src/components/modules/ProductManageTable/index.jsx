@@ -5,7 +5,6 @@ import useColumn from "../../../hooks/useColumn";
 import ModalDelete from "../ModalDelete";
 import InfoLayout from "../../layouts/Info";
 import ModalUpdate from "../ModalUpdate";
-// import dataDefault from "./dataDefault";
 import { Link } from "react-router-dom";
 
 const { Search } = Input;
@@ -22,14 +21,18 @@ function ProductManageTable() {
   const products = JSON.parse(localStorage.getItem("products")) || [];
 
   const data = products.map((item) => ({
-    // dataDefault,
     key: item.id,
     image: item.image,
     ...item,
   }));
 
   const image = useColumn("image", 150);
-  const productName = useColumn("productName", 150, "", (a, b) => a.id - b.id);
+  const productName = useColumn(
+    "productName",
+    150,
+    "",
+    (a, b) => a.key - b.key
+  );
   const quality = useColumn("quality", 100);
   const category = useColumn("category", 250);
   const descriptions = useColumn("descriptions", 400);
