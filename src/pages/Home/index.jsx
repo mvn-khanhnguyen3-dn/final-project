@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Layout, Carousel } from "antd";
-import slide1 from "../../assert/images/slide1.jpg";
-import slide2 from "../../assert/images/slide2.jpg";
-import slide3 from "../../assert/images/slide3.jpg";
+import slide1 from "../../assert/images/slide1.jpeg";
+import slide2 from "../../assert/images/slide2.jpeg";
+import slide3 from "../../assert/images/slide3.jpeg";
 
 const contentStyle = {
   height: "100px",
