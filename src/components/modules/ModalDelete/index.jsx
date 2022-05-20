@@ -15,11 +15,6 @@ const ModalLayout = (props) => {
           (item) =>
             item.id === id && (
               <div key={item.id} className="flex">
-                <img
-                  style={{ height: 190, borderRadius: 8, marginRight: 30 }}
-                  src={item.image}
-                  alt={item.category}
-                />
                 <Descriptions column={1} key={item.id} title={item.productName}>
                   <Descriptions.Item label="Category">
                     {item.category}

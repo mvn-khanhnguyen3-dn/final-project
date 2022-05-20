@@ -26,15 +26,10 @@ function ProductManageTable() {
     ...item,
   }));
 
-  const image = useColumn("image", 150);
-  const productName = useColumn(
-    "productName",
-    150,
-    "",
-    (a, b) => a.key - b.key
-  );
+  const image = useColumn("image", 100);
+  const productName = useColumn("productName", 150, "", (a, b) => a.id - b.id);
   const quality = useColumn("quality", 100);
-  const category = useColumn("category", 250);
+  const category = useColumn("category", 100);
   const descriptions = useColumn("descriptions", 400);
   const price = useColumn("price", 150);
   const action = useColumn("action", 120);
@@ -72,7 +67,7 @@ function ProductManageTable() {
     if (filterInput === "") return data;
 
     if (isNaN(filterInput)) {
-      return data.filter(({ productName }) =>
+      return products.filter(({ productName }) =>
         productName.toLocaleLowerCase().includes(filterInput)
       );
     }
@@ -99,7 +94,6 @@ function ProductManageTable() {
                   borderRadius: 8,
                   objectFit: "cover",
                   textAlign: "center",
-                  marginLeft: 10,
                 }}
                 src={record}
                 alt="productName"

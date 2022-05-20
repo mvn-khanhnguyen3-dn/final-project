@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useMessage from "../../../hooks/useMessage";
 import { Layout, Form, Input, Button, Checkbox } from "antd";
 import { apiUsersGetList } from "../../../api/users/users.api";
+import dataDefault from "../dataDefault";
 
 const { Content } = Layout;
 
@@ -21,11 +22,17 @@ export default function Login() {
     });
   }, []);
 
+  
+
   const onFinish = (values) => {
-    const users = userApi.find(user => user)
-    if ( users.userName === values.username && users.password === values.password) {
+    const users = userApi.find((user) => user);
+    if (
+      users.userName === values.username &&
+      users.password === values.password
+    ) {
       login({ user }, { password });
       openMessage();
+      localStorage.setItem("products", JSON.stringify(dataDefault));
     } else {
       openMessageErr();
     }
