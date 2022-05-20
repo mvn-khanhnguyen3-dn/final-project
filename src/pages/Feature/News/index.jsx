@@ -13,7 +13,7 @@ function News() {
   const quanlity = useColumn("quanlity", 100);
   const category = useColumn("category", 100);
   const descriptions = useColumn("descriptions", 400);
-  const price = useColumn("price", 150);
+  const price = useColumn("price", 100);
 
   useEffect(() => {
     let abortController = new AbortController();
