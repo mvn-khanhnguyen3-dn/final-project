@@ -1,6 +1,5 @@
 import { memo } from "react";
-import { PageHeader, Dropdown, Button, Tag, Typography } from "antd";
-import { MoreOutlined } from "@ant-design/icons";
+import { PageHeader, Button, Tag, Typography } from "antd";
 
 const { Paragraph } = Typography;
 
