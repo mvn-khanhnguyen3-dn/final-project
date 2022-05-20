@@ -13,9 +13,9 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            <Route path="/product">
+            <PrivateRoute path="/product">
               <Feature />
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/account">
               <Account />
             </PrivateRoute>
