@@ -11,6 +11,9 @@
   .login-form {
     width: 45% !important;
   }
+  .ant-table table {
+  table-layout: auto !important;
+}
 }
 @include respond-below(medium) {
 }
