@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './assert/scss/styles.scss';
+import store from "./store";
+import { Provider } from "react-redux";
 
 const root = document.getElementById("root");
 ReactDOM.render(
-    <App />,root
+  <Provider store={store}>
+    <App />
+  </Provider>,root
 );
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
