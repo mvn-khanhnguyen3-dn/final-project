@@ -1,14 +1,17 @@
 import React from "react";
-import { Descriptions } from "antd";
+import { Descriptions, Image } from "antd";
 
 function InfoLayout({ data }) {
   return (
     <>
-      <img
-        style={{ marginTop: 10, marginBottom: 20 }}
+      <Image
+        style={{ marginTop: 10, marginBottom: 20, width: 180, height: 180 }}
         className="info-image"
         src={data.image}
         alt=""
+        mask={false}
+        width={180}
+        height={200}
       />
       <Descriptions column={2} title={data.productName} layout="horizontal">
         <Descriptions.Item label="ProductName">
