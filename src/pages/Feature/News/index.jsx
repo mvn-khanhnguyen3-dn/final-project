@@ -11,15 +11,19 @@ function News() {
   const [filterInput, setFilterInput] = useState("");
   const productName = useColumn("productName", 150);
   const quanlity = useColumn("quanlity", 100);
-  const category = useColumn("category", 250);
+  const category = useColumn("category", 100);
   const descriptions = useColumn("descriptions", 400);
   const price = useColumn("price", 150);
 
   useEffect(() => {
     let abortController = new AbortController();
-    apiProductsGetList().then((result) => {
-      setFetchData(result.data);
-    });
+    try {
+      apiProductsGetList().then((result) => {
+        setFetchData(result.data);
+      });
+    } catch (error) {
+      throw error;
+    }
     return () => {
       abortController.abort();
     };
