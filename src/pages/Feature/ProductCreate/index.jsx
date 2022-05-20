@@ -6,6 +6,7 @@ import useNotification from "../../../hooks/useNotification";
 const { Content } = Layout;
 
 function ProductCreate() {
+  
   const [data, setData] = useState([]);
   const [list, setList] = useState({
     image: null,

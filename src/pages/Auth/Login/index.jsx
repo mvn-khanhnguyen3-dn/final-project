@@ -17,12 +17,14 @@ export default function Login() {
   let { openMessage, openMessageErr } = useMessage();
 
   useEffect(() => {
-    apiUsersGetList().then((user) => {
-      setUserApi(user.data);
-    });
+    try {
+      apiUsersGetList().then((user) => {
+        setUserApi(user.data);
+      });
+    } catch (error) {
+      throw error;
+    }
   }, []);
-
-  
 
   const onFinish = (values) => {
     const users = userApi.find((user) => user);
