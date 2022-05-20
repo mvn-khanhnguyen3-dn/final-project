@@ -22,6 +22,17 @@ function FormInput(props) {
     list.image = image;
     setList({ ...list, [name]: value });
   };
+
+  const onChange = (e) => {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setImage(reader.result);
+      list.image = reader.result;
+    };
+  };
+
   useEffect(() => {
     const productList = JSON.parse(localStorage.getItem("products")) || [];
     setData(productList);
@@ -30,7 +41,7 @@ function FormInput(props) {
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(data));
   }, [data]);
-  
+
   return (
     <Form
       form={form}
@@ -51,11 +62,7 @@ function FormInput(props) {
     >
       <Form.Item label="Image">
         {image && <img className="input-img" src={image} alt="" />}
-        <input
-          type="file"
-          name="image"
-          onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
-        />
+        <input type="file" name="image" onChange={onChange} />
       </Form.Item>
       <Form.Item
         rules={[{ required: true, message: "Please input your product name!" }]}
