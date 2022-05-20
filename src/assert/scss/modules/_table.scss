@@ -50,5 +50,8 @@ td.ant-table-column-sort {
   background: transparent;
 }
 .ant-table-cell-ellipsis {
-    white-space: unset;
+  white-space: unset;
+}
+.ant-modal-mask {
+  background-color: rgba(0, 0, 0, 0.13);
 }
