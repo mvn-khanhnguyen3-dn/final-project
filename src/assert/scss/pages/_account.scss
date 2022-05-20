@@ -39,10 +39,8 @@
   margin-right: 0;
   margin-left: 8px;
 }
-
-@media (max-width: 768px) {
-  .image {
-    flex: 100%;
-    margin: 24px 0 0;
-  }
+.account-image {
+  margin: 40px 0;
+  width: 200px;
+  height: 200px;
 }

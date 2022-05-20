@@ -1,14 +1,8 @@
 import { memo } from "react";
-import { PageHeader, Dropdown, Button, Tag, Typography, Row } from "antd";
+import { PageHeader, Dropdown, Button, Tag, Typography } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 
 const { Paragraph } = Typography;
-
-const DropdownMenu = () => (
-  <Dropdown key="more" placement="bottomRight">
-    <Button type="text" icon={<MoreOutlined style={{ fontSize: 20 }} />} />
-  </Dropdown>
-);
 
 const content = (
   <>
@@ -27,12 +21,10 @@ const content = (
   </>
 );
 const Content = ({ children, extraContent }) => (
-  <Row>
-    <div style={{ flex: 3 }}>{children}</div>
-    <div style={{ flex: 1 }} className="image">
-      {extraContent}
-    </div>
-  </Row>
+  <>
+    <div className="account-content">{children}</div>
+    <div className="account-image">{extraContent}</div>
+  </>
 );
 
 function Account() {
@@ -51,7 +43,6 @@ function Account() {
             <Button key="1" type="primary">
               Hello {user && user.email.user}
             </Button>,
-            <DropdownMenu key="more" />,
           ]}
           avatar={{
             src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
