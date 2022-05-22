@@ -22,13 +22,19 @@
     .login-title {
       font-size: 50px;
       font-weight: 900;
-      margin: 50px 40px 40px;
+      margin: 40px 30px 40px;
     }
     .login-desc {
       color: #999;
       font-size: 14px;
       line-height: 1.5;
-      margin: 40px;
+      margin: 30px;
     }
   }
+}
+.ant-form-item-control-input-content {
+  width: 150px;
+}
+.ant-form-item-required {
+  width: 120px;
 }
