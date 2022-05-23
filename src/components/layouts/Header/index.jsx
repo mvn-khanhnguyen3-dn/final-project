@@ -1,8 +1,8 @@
-import React,{memo, useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
-import { Layout, Menu, Avatar, Badge } from 'antd';
-import useAuth from '../../../hooks/useAuth';
-import useMessage from '../../../hooks/useMessage'
+import React, { memo, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Layout, Menu, Avatar, Badge } from "antd";
+import useAuth from "../../../hooks/useAuth";
+import useMessage from "../../../hooks/useMessage";
 import {
   HomeOutlined,
   PlusCircleOutlined,
@@ -12,8 +12,7 @@ import {
   DingtalkOutlined,
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import { apiUsersGetList } from '../../../api/users/users.api';
-
+import { apiUsersGetList } from "../../../api/users/users.api";
 
 const { Header } = Layout;
 const data = [
@@ -33,23 +32,22 @@ const data = [
     icon: <DingtalkOutlined />,
   },
 ];
-function PageHeader () {
-  let {logout} = useAuth();
+function PageHeader() {
+  let { logout } = useAuth();
   let { openMessage } = useMessage();
   const [userApi, setUserApi] = useState();
 
- 
-  const [selectKey,setSelectKey] = useState(0);
-  const key = 'selectKey';
+  const [selectKey, setSelectKey] = useState(0);
+  const key = "selectKey";
   const keySelect = JSON.parse(localStorage.getItem(key));
 
-  const handleLogout = () =>{
-    const userLocal = JSON.parse(localStorage.getItem('user'));
-    if(userLocal){
+  const handleLogout = () => {
+    const userLocal = JSON.parse(localStorage.getItem("user"));
+    if (userLocal) {
       openMessage();
       logout();
     }
-  }
+  };
   useEffect(() => {
     try {
       apiUsersGetList().then((user) => {
@@ -101,9 +99,9 @@ function PageHeader () {
         <ul className="socials">
           <li>
             <Link to="/account">
-              <Badge  count={count}>
+              <Badge count={count}>
                 <Avatar shape="square" icon={<UserOutlined />} />
-              </Badge> 
+              </Badge>
             </Link>
           </li>
           <li>
@@ -113,7 +111,5 @@ function PageHeader () {
       </Header>
     </Layout>
   );
-};
+}
 export default memo(PageHeader);
-
-

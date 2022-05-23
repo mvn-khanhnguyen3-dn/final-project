@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 const { Content } = Layout;
 
 export default function Login() {
-  // const [user, setUser] = useState();
-  // const [password, setPassword] = useState();
   const [userApi, setUserApi] = useState();
 
   let { login } = useAuth();
@@ -26,6 +24,7 @@ export default function Login() {
       throw error;
     }
   }, []);
+
 
   const onFinish = (values) => {
     
@@ -90,7 +89,6 @@ export default function Login() {
                   message: "Please input your username!",
                 },
               ]}
-              // onChange={(e) => setUser(e.target.value)}
             >
               <Input />
             </Form.Item>
@@ -105,7 +103,6 @@ export default function Login() {
                   message: "Please input your password!",
                 },
               ]}
-              // onChange={(e) => setPassword(e.target.value)}
             >
               <Input.Password />
             </Form.Item>
