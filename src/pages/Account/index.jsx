@@ -27,20 +27,19 @@ const Content = ({ children, extraContent }) => (
 );
 
 function Account() {
-  const user = JSON.parse(localStorage.getItem("user")) || [];
+  // const user = JSON.parse(localStorage.getItem("user")) || [];
 
   return (
     <Content className="page-account">
       <div className="account-container">
         <PageHeader
-          title={user && user.email.user}
           style={{ textTransform: "capitalize" }}
           className="site-page-header"
           subTitle="Welcome back"
           tags={<Tag color="blue">Login</Tag>}
           extra={[
             <Button key="1" type="primary">
-              Hello {user && user.email.user}
+              {/* Hello {user && user.email.user} */}
             </Button>,
           ]}
           avatar={{

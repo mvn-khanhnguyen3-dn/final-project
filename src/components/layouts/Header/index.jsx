@@ -101,7 +101,7 @@ function PageHeader () {
         <ul className="socials">
           <li>
             <Link to="/account">
-              <Badge count={count}>
+              <Badge  count={count}>
                 <Avatar shape="square" icon={<UserOutlined />} />
               </Badge> 
             </Link>

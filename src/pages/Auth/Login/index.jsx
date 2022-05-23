@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 const { Content } = Layout;
 
 export default function Login() {
-  const [user, setUser] = useState();
-  const [password, setPassword] = useState();
+  // const [user, setUser] = useState();
+  // const [password, setPassword] = useState();
   const [userApi, setUserApi] = useState();
 
   let { login } = useAuth();
@@ -28,17 +28,19 @@ export default function Login() {
   }, []);
 
   const onFinish = (values) => {
-    const users = userApi.find((user) => user);
-    if (
-      users.userName === values.username &&
-      users.password === values.password
-    ) {
-      login({ user }, { password });
-      openMessage();
-      localStorage.setItem("products", JSON.stringify(dataDefault));
-    } else {
-      openMessageErr();
-    }
+    
+      if (
+        userApi.map(user => (
+          user.userName === values.userName &&
+          user.password === values.password
+        ))
+      ) {
+        login(values.userName, values.password);
+        localStorage.setItem("products", JSON.stringify(dataDefault));
+        openMessage();
+      } else {
+        openMessageErr();
+      }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -81,14 +83,14 @@ export default function Login() {
             <Form.Item
               className="login-item"
               label="Username"
-              name="username"
+              name="userName"
               rules={[
                 {
                   required: true,
                   message: "Please input your username!",
                 },
               ]}
-              onChange={(e) => setUser(e.target.value)}
+              // onChange={(e) => setUser(e.target.value)}
             >
               <Input />
             </Form.Item>
@@ -103,7 +105,7 @@ export default function Login() {
                   message: "Please input your password!",
                 },
               ]}
-              onChange={(e) => setPassword(e.target.value)}
+              // onChange={(e) => setPassword(e.target.value)}
             >
               <Input.Password />
             </Form.Item>

@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Layout, Breadcrumb } from "antd";
 import FormInput from "../../../components/layouts/FormInput";
 import useNotification from "../../../hooks/useNotification";
+import {useHistory} from 'react-router-dom'
 
 const { Content } = Layout;
 
 function ProductCreate() {
-  
   const [data, setData] = useState([]);
   const [list, setList] = useState({
     image: null,
@@ -22,11 +22,13 @@ function ProductCreate() {
     `${list.productName} added to the list`
   );
 
+  const history = useHistory();
   const handleSubmit = () => {
     // const id = Math.floor(Math.random() * 10000);
     const id = data.length + 1;
     setData([...data, { id, ...list }]);
     openNotification();
+    history.push("/product/product-manage");
   };
 
   return (

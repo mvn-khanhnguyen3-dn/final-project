@@ -9,7 +9,6 @@ function InfoLayout({ data }) {
         className="info-image"
         src={data.image}
         alt=""
-        mask={false}
         width={180}
         height={200}
       />

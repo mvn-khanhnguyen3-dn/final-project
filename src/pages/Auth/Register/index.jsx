@@ -12,11 +12,16 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    try {
-      apiUsersPostList(values);
-      dispatch(counter());
-      openMessage();
-    } catch (error) {
+    if(values.password === values.verifyPassword){
+      try {
+        apiUsersPostList(values);
+        dispatch(counter());
+        openMessage();
+      } catch (error) {
+        openMessageErr();
+      }
+    }
+    else{
       openMessageErr();
     }
   };
@@ -52,7 +57,7 @@ export default function Login() {
             <Form.Item
               className="login-item"
               label="Username"
-              name="username"
+              name="userName"
               rules={[
                 {
                   required: true,
@@ -79,7 +84,7 @@ export default function Login() {
             <Form.Item
               className="login-item"
               label="Verify Password"
-              name="password"
+              name="verifyPassword"
               rules={[
                 {
                   required: true,

@@ -35,16 +35,28 @@
 }
 .socials {
   position: absolute;
-  right: 1.75%;
+  right: 50px;
   top: 0;
   li {
+    &:first-child {
+      padding-left: 0;
+    }
     list-style: none;
     display: inline-block;
-    padding-right: 25px;
+    padding-left: 25px;
     color: #fff;
     font-size: 20px;
     a {
       color: #fff;
+    }
+    .ant-badge {
+      sup {
+        font-size: 12px;
+      }
+    }
+    .ant-avatar {
+      background: none;
+      font-size: 20px;
     }
   }
 }
