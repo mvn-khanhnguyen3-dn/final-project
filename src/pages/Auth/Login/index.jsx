@@ -25,14 +25,14 @@ export default function Login() {
     }
   }, []);
 
-
   const onFinish = (values) => {
-    
+    if (userApi) {
       if (
-        userApi.map(user => (
-          user.userName === values.userName &&
-          user.password === values.password
-        ))
+        userApi.find(
+          (user) =>
+            user.userName === values.userName &&
+            user.password === values.password
+        )
       ) {
         login(values.userName, values.password);
         localStorage.setItem("products", JSON.stringify(dataDefault));
@@ -40,6 +40,7 @@ export default function Login() {
       } else {
         openMessageErr();
       }
+    }
   };
 
   const onFinishFailed = (errorInfo) => {

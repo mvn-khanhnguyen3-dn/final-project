@@ -16,16 +16,21 @@ function News() {
   const price = useColumn("price", 100);
 
   useEffect(() => {
-    let abortController = new AbortController();
-    try {
-      apiProductsGetList().then((result) => {
-        setFetchData(result.data);
-      });
-    } catch (error) {
-      throw error;
-    }
+    let isCancelled = false;
+    const fetch = () => {
+      try {
+         if (!isCancelled) {
+        apiProductsGetList().then((result) => {
+          setFetchData(result.data);
+        });
+      }
+      } catch (error) {
+        throw error;
+      }
+    };
+    fetch();
     return () => {
-      abortController.abort();
+      isCancelled = true;
     };
   }, []);
   const filterData = () => {
